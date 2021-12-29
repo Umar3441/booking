@@ -4,11 +4,15 @@ import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from '../screens/app/home'
+import EnableLocation from '../screens/app/enableLocation';
+import TabNavigator from './bottomTabNavigator';
+import DateSelector from '../screens/app/DateSelector';
 
 
 
 const Stack = createNativeStackNavigator();
+
+
 
 function AppNavigator() {
     return (
@@ -18,7 +22,10 @@ function AppNavigator() {
                 headerShown: false
             }
         }>
-            <Stack.Screen name="Home" component={Home} />
+
+            <Stack.Screen name="TabNavigator" component={TabNavigator} />
+            <Stack.Screen name="EnableLocation" component={EnableLocation} />
+
 
         </Stack.Navigator>
 

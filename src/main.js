@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import AuthNavigator from './navigation/authNavigator'
-import Home from './screens/app/home';
+
 import auth from '@react-native-firebase/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from './redux/actions/user';
 import MainNavigator from './navigation/mainNavigator';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import firestore from '@react-native-firebase/firestore';
+import TabNavigator from './navigation/bottomTabNavigator';
 
 const Main = () => {
 
@@ -71,6 +72,10 @@ const Main = () => {
 
 
     return <MainNavigator />
+
+    // return <NavigationContainer>
+    //     <TabNavigator />
+    // </NavigationContainer>
 
 
 

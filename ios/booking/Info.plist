@@ -33,6 +33,8 @@
 			</array>
 		</dict>
 	</array>
+	 <key>NSLocationWhenInUseUsageDescription</key>
+  <string>location is required</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
