@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "489906264630",
+    "project_id": "booking-91fac",
+    "storage_bucket": "booking-91fac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489906264630:android:b1876cfc060944fbfe1697",
+        "android_client_info": {
+          "package_name": "com.indexapps.tasttlig"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489906264630-j4s1oif0rrtd8brsp5ebm37pifa73ut1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.indexapps.tasttlig",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "489906264630-rkhaerqefrvg82sccga3j1ic3tbdishu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCFSY8XE6DONNsq6A96EGJjbtcFJPFh8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489906264630-rkhaerqefrvg82sccga3j1ic3tbdishu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "489906264630-cgk7ouvt1ijudl6vhva12rdt4om5vcod.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.booking"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
