@@ -10,6 +10,8 @@ import DateSelector from '../screens/app/DateSelector';
 import BookingDetails from '../screens/app/bookingDetails';
 import LookingForFlights from '../screens/app/lookingForFlights';
 import FlightList from '../screens/app/flightsList';
+import PaymentDetails from '../screens/app/paymentDetails';
+import QRcode from '../screens/app/qrCode';
 
 
 
@@ -31,6 +33,8 @@ function AppNavigator() {
             <Stack.Screen name='BookingDetails' component={BookingDetails} />
             <Stack.Screen name='LookingForFlights' component={LookingForFlights} />
             <Stack.Screen name='FlightList' component={FlightList} />
+            <Stack.Screen name='PaymentDetails' component={PaymentDetails} />
+            <Stack.Screen name='QRcode' component={QRcode} />
 
         </Stack.Navigator>
 

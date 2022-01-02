@@ -59,14 +59,14 @@ const LookingForFlights = ({ route }) => {
             offers.data.data.offers.forEach(offer => {
                 offer.slices.forEach(slice => {
                     slice.segments.forEach(segment => {
-                        finalOffers.push({ ...segment, base_amount: offer.base_amount, total_amount: offer.total_amount, base_currency: offer.base_currency, tax_amount: offer.tax_amount })
+                        finalOffers.push({ ...segment, offerId: offer.id, base_amount: offer.base_amount, total_amount: offer.total_amount, base_currency: offer.base_currency, tax_amount: offer.tax_amount })
                     });
                 });
             });
 
-            console.log(finalOffers[0].id)
+            console.log(finalOffers[0].offerId)
 
-            navigation.navigate('FlightList', { selectedDate: offerRequiredData.departureDate, flightOffers: finalOffers });
+            navigation.navigate('FlightList', { selectedDate: offerRequiredData.departureDate, flightOffers: finalOffers, passengerData: offerRequiredData });
 
 
         } catch (error) {

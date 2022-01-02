@@ -1,15 +1,16 @@
 import React, { useRef, useState } from 'react'
-import { StyleSheet, Text, View, StatusBar, FlatList } from 'react-native'
+import { StyleSheet, Text, View, StatusBar, FlatList, TouchableOpacity } from 'react-native'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
 import { getStatusBarHeight } from 'react-native-status-bar-height'
 import { colors } from '../../utils'
 import moment from 'moment'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { useNavigation } from '@react-navigation/native'
 
 const FlightList = ({ route }) => {
 
-
+    const navigation = useNavigation()
 
 
     const data = route.params
@@ -67,15 +68,13 @@ const FlightList = ({ route }) => {
     }
 
     const FlightView = ({ item, index }) => {
-
-
         const arrivalTime = moment(item.arriving_at);
         const departureTime = moment(item.departing_at);
 
         const diff = arrivalTime.diff(departureTime, 'minutes');
 
         return (
-            <View style={{ backgroundColor: colors.white, width: '100%', padding: 20, borderWidth: 0, marginTop: 15, marginBottom: index === flights.length - 1 ? 70 : 0 }}>
+            <TouchableOpacity onPress={() => navigation.navigate('PaymentDetails', { passengerData: { ...data.passengerData, selectedDate: data.selectedDate }, offer: item })} style={{ backgroundColor: colors.white, width: '100%', padding: 20, borderWidth: 0, marginTop: 15, marginBottom: index === flights.length - 1 ? 70 : 0 }}>
                 <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Text style={{ fontSize: 18 }}>{moment(item.departing_at).format("h:mm a")}</Text>
@@ -109,7 +108,7 @@ const FlightList = ({ route }) => {
                 </View>
 
 
-            </View>
+            </TouchableOpacity>
         )
     }
 
