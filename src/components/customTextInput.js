@@ -3,10 +3,11 @@ import { Platform, StyleSheet, Text, TextInput, View } from 'react-native'
 import { textStyles } from '../utils'
 
 import Entypo from 'react-native-vector-icons/Entypo'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
 
-const CustomTextInput = ({ title, placeHolder, borderColor, error, password, showPasswordPressHandler, showPassword, ...otherProps }) => {
+const CustomTextInput = ({ title, placeHolder, borderColor, error, password, showPasswordPressHandler, showPassword, Icon, ...otherProps }) => {
     return (
         <View style={styles.container}>
             <Text style={textStyles.blackMedium16}>{title}</Text>
@@ -27,6 +28,11 @@ const CustomTextInput = ({ title, placeHolder, borderColor, error, password, sho
                             <Entypo name='eye-with-line' size={20} color={borderColor} onPress={showPasswordPressHandler} />
                         )
                         : null
+                }
+
+                {Icon ?
+                    <Icon />
+                    : null
                 }
 
             </View>

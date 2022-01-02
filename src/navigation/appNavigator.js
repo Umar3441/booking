@@ -7,6 +7,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EnableLocation from '../screens/app/enableLocation';
 import TabNavigator from './bottomTabNavigator';
 import DateSelector from '../screens/app/DateSelector';
+import BookingDetails from '../screens/app/bookingDetails';
+import LookingForFlights from '../screens/app/lookingForFlights';
+import FlightList from '../screens/app/flightsList';
 
 
 
@@ -22,10 +25,12 @@ function AppNavigator() {
                 headerShown: false
             }
         }>
-
             <Stack.Screen name="TabNavigator" component={TabNavigator} />
             <Stack.Screen name="EnableLocation" component={EnableLocation} />
-
+            <Stack.Screen name="DateSelector" component={DateSelector} />
+            <Stack.Screen name='BookingDetails' component={BookingDetails} />
+            <Stack.Screen name='LookingForFlights' component={LookingForFlights} />
+            <Stack.Screen name='FlightList' component={FlightList} />
 
         </Stack.Navigator>
 

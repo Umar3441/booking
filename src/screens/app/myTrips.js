@@ -5,6 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Entypo from 'react-native-vector-icons/Entypo'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
+import auth from '@react-native-firebase/auth'
+
 
 import { textStyles, images, colors } from '../../utils';
 
@@ -55,11 +57,16 @@ const MyTrips = () => {
                     My Trips
                 </Text>
 
-                <Entypo name='dots-three-vertical' size={25} color={colors.black} />
+                <Entypo onPress={() => {
+                    auth().signOut().then(
+                        () => { navigation.replace('Auth') }
+                    )
+
+                }} name='dots-three-vertical' size={25} color={colors.black} />
             </View>
 
             <View style={styles.noTripsContainer}>
-                <Image source={images.getStartedLogo} style={styles.noTripsLogo} />
+                <Image source={images.noUpcomingTrips} style={styles.noTripsLogo} />
                 <Text style={[textStyles.bigBoldBlack, { fontSize: 22, color: colors.primary, marginTop: 20 }]}>
                     No upcoming trips
                 </Text>
@@ -71,11 +78,12 @@ const MyTrips = () => {
                     your initnerary here
                 </Text>
 
-                <TouchableOpacity onPress={() => console.log('hello')} style={styles.buttonStyle}>
+                <TouchableOpacity onPress={() => navigation.navigate('BookingDetails')} style={styles.buttonStyle}>
                     <Text style={styles.bigButtonTextStyle}>
                         BOOK A TICKET
                     </Text>
                 </TouchableOpacity>
+
 
             </View>
         </View>

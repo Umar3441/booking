@@ -33,7 +33,7 @@ const EnableLocation = () => {
             <AntDesign onPress={() => navigation.goBack()} style={{ marginBottom: 20, position: 'absolute', top: getStatusBarHeight() + 5, left: 5 }} name="arrowleft" size={25} />
 
             <View style={styles.contentContainer}>
-                <Image source={images.getStartedLogo} style={styles.imageStyles} />
+                <Image source={images.whatsNearByLogo} style={styles.imageStyles} />
                 <Text style={[textStyles.bigBoldBlack, { fontSize: 22, color: colors.primary, marginTop: 20 }]}>What's nearby?</Text>
 
                 <Text style={[textStyles.greyNormal16, { marginTop: 20 }]}>
