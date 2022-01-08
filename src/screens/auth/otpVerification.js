@@ -15,6 +15,7 @@ const OtpVerification = ({ route }) => {
     const navigation = useNavigation()
     const dispatch = useDispatch()
     const data = route.params
+    console.log(data)
 
 
 
@@ -23,6 +24,8 @@ const OtpVerification = ({ route }) => {
     const [confirm, setConfirm] = useState(null);
 
     const [code, setCode] = useState('');
+
+    const [error, seterror] = useState('')
 
     async function signInWithPhoneNumber(phoneNumber) {
 
@@ -40,6 +43,7 @@ const OtpVerification = ({ route }) => {
         setLoading(true)
         confirm.confirm(code).then(
             () => {
+
                 if (data.email && data.fullName) {
 
                     auth().currentUser.updateProfile({
@@ -66,7 +70,7 @@ const OtpVerification = ({ route }) => {
                                             email: data?.email,
                                         }))
                                         setLoading(false)
-                                        navigation.replace('App')
+                                        // navigation.replace('App')
                                     }
                                 )
 
@@ -86,9 +90,9 @@ const OtpVerification = ({ route }) => {
                                 setLoading(false)
                                 if (data) {
                                     dispatch(addUser(documentSnapshot.data()))
-                                    navigation.replace('App')
+                                    // navigation.replace('App')
                                 } else {
-                                    navigation.replace('App')
+                                    // navigation.replace('App')
                                 }
 
 
@@ -106,6 +110,7 @@ const OtpVerification = ({ route }) => {
         ).catch(
             err => {
                 setLoading(false)
+                seterror('ERROR')
                 console.log('error', err)
             }
         )
@@ -145,6 +150,8 @@ const OtpVerification = ({ route }) => {
                         console.log(`Code is ${code}, you are good to go!`)
                     })}
                 />
+
+                <Text style={{ alignSelf: 'center', marginTop: 10, color: 'red' }}>{error}</Text>
 
                 <View style={styles.notRecievedCodeStyle}>
                     <Text style={{ fontWeight: '300' }}>Didn't recieve OTP Code?</Text>

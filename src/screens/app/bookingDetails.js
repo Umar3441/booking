@@ -42,6 +42,13 @@ const BookingDetails = () => {
     const [passportNumberError, setPassportNumberError] = useState(null)
     const [passportNumberBorderColor, setPassportNumberBorderColor] = useState(colors.lightGrey)
 
+
+    /////////////Driving license states ////////////////
+    const [drivingLicense, setdrivingLicense] = useState(null)
+    const [drivingLicenseError, setdrivingLicenseError] = useState(null)
+    const [drivingLicenseBorderColor, setdrivingLicenseBorderColor] = useState(colors.lightGrey)
+
+
     /////////////Departure City states ////////////////
     const [departureCity, setdepartureCity] = useState(null)
     const [departureCityError, setdepartureCityError] = useState(null)
@@ -75,6 +82,10 @@ const BookingDetails = () => {
             setPassportNumberError('Required')
             globalError = true
         }
+        if (!drivingLicense) {
+            setdrivingLicenseError('Required')
+            globalError = true
+        }
         if (!departureCity) {
             setdepartureCityError('Required')
             globalError = true
@@ -99,7 +110,9 @@ const BookingDetails = () => {
                 arrivalCity,
                 arrivalCityCode,
                 phoneNumber,
-                departureDate: '2022-01-10'
+                drivingLicense,
+                departureDate: '2022-01-10',
+
             })
 
         } else {
@@ -193,6 +206,28 @@ const BookingDetails = () => {
                     keyboardType='numeric'
 
                     Icon={() => <MaterialCommunityIcons name='credit-card-scan-outline' size={20} color={passportNumberBorderColor} onPress={() => console.log('scan')} />}
+                />
+
+
+                <CustomTextInput
+                    title='Driving License'
+                    placeHolder='Enter Driving License'
+                    borderColor={drivingLicenseBorderColor}
+                    error={drivingLicenseError}
+                    onChangeText={(text) => setdrivingLicense(text)}
+                    onFocus={() => {
+                        setdrivingLicenseError(null)
+                        setdrivingLicenseBorderColor(colors.primary)
+                    }}
+                    onBlur={() => {
+                        setdrivingLicenseBorderColor(colors.lightGrey)
+                        if (!fullName) {
+                            setdrivingLicenseError('Required')
+                        }
+                    }}
+                    keyboardType='numeric'
+
+                    Icon={() => <FontAwesome name='drivers-license-o' size={20} color={drivingLicenseBorderColor} onPress={() => console.log('scan')} />}
                 />
 
                 <CustomTextInput
@@ -315,7 +350,7 @@ const BookingDetails = () => {
 
 
 
-                <TouchableOpacity onPress={() => proceedToTicketFunction()} style={styles.buttonStyle}>
+                <TouchableOpacity onPress={() => proceedToTicketFunction()} style={[styles.buttonStyle, { marginBottom: 50 }]}>
                     <Text style={styles.bigButtonTextStyle}>
                         Proceed to Tickets
                     </Text>
@@ -362,7 +397,7 @@ const BookingDetails = () => {
 
                 </View>
             </Modal>
-        </View>
+        </View >
     )
 }
 

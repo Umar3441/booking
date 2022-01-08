@@ -15,6 +15,7 @@ const FlightList = ({ route }) => {
 
     const data = route.params
     console.log("----->", data.flightOffers[0].id)
+    console.log('++++++++++++++++', data.passengerData)
 
     //////////flights//////////
     // [
@@ -120,7 +121,7 @@ const FlightList = ({ route }) => {
                 <View style={styles.header}>
                     <SimpleLineIcons onPress={() => navigation?.navigate('Profile')} name='menu' size={25} color={colors.black} />
                     <Text style={{ fontSize: 20, fontWeight: '300', color: colors.black }}>
-                        {'LHR'} - {'ISB'}
+                        {data.passengerData.departureCityCode} - {data.passengerData.arrivalCityCode}
                     </Text>
                     <Entypo name='dots-three-vertical' size={25} color={colors.black} />
 

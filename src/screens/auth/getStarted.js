@@ -8,11 +8,11 @@ const GetStarted = () => {
     const navigation = useNavigation()
 
 
-    useEffect(() => {
-        if (auth().currentUser) {
-            navigation.replace('App')
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (auth().currentUser) {
+    //         navigation.replace('App')
+    //     }
+    // }, [])
 
     return (
         <View style={styles.container}>

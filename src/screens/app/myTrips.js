@@ -59,7 +59,7 @@ const MyTrips = () => {
 
                 <Entypo onPress={() => {
                     auth().signOut().then(
-                        () => { navigation.replace('Auth') }
+                        // () => { navigation.replace('Auth') }
                     )
 
                 }} name='dots-three-vertical' size={25} color={colors.black} />

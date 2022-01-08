@@ -6,6 +6,7 @@ import Feather from 'react-native-vector-icons/Feather'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { colors } from '../utils';
+import MyBooking from '../screens/app/myBooking';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +35,7 @@ function TabNavigator() {
                     }
                 }
             />
-            <Tab.Screen name="MyBooking" component={MyTrips}
+            <Tab.Screen name="MyBooking" component={MyBooking}
 
                 options={
                     {

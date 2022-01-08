@@ -14,11 +14,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "489906264630-j4s1oif0rrtd8brsp5ebm37pifa73ut1.apps.googleusercontent.com",
+          "client_id": "489906264630-bi74ri133ia17kcong7u9ni3klbcutcd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.indexapps.tasttlig",
             "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "489906264630-etonioon2f316d55r2lddl18iid2g49l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.indexapps.tasttlig",
+            "certificate_hash": "b87c64ba56a268e048fc848a8eaebe8008c982d4"
           }
         },
         {

@@ -3,6 +3,8 @@ import { StyleSheet, StatusBar, Text, View, FlatList, TouchableOpacity, Dimensio
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import CustomTextInput from '../../components/customTextInput'
 import { colors, textStyles, tokens } from '../../utils';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth'
 
 import { useNavigation } from '@react-navigation/native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
@@ -71,11 +73,11 @@ const PaymentDetails = ({ route }) => {
             setcardNumberError('required')
             globalError = true
         }
-        if (!expiryDateError) {
+        if (!expiryDate) {
             setexpiryDateError('required')
             globalError = true
         }
-        if (!cvvError) {
+        if (!cvv) {
             setcvvError('required')
             globalError = true
         }
@@ -85,17 +87,48 @@ const PaymentDetails = ({ route }) => {
 
             // console.log(order)
 
+            let tempData = null
 
-            console.log(offer.passengerData.passportNumber)
-            console.log(offer.offer.offerId)
+            firestore()
+                .collection('users')
+                .doc(auth().currentUser.phoneNumber + "")
+                .get()
+                .then(querySnapshot => {
+                    tempData = querySnapshot.data()
+                    // console.log('---->', [...tempData.bookings, { ...offer.passengerData, offer: offer.offerd, creditCardNumber: cardNumber }])
 
-            navigation.navigate('QRcode', {
-                fullname: offer.passengerData.fullName,
-                date: offer.passengerData.selectedDate,
-                offerId: offer.offer.offerId,
-                passportNumber: offer.passengerData.passportNumber,
-                phoneNumber: offer.passengerData.phoneNumber
-            })
+                    const bookings = tempData.bookings
+                    bookings.push({ ...offer.passengerData, offer: offer.offer, creditCardNumber: cardNumber, qrcodeValue: `{ticketId:${offer.offer.offerId} , passport:${offer.passengerData.passportNumber}}` })
+                    console.log(bookings)
+
+                    firestore()
+                        .collection('users')
+                        .doc(auth().currentUser.phoneNumber + "")
+                        .set({
+                            ...tempData,
+                            bookings: bookings
+                        })
+                        .then(() => {
+                            navigation.navigate('QRcode', {
+                                ticketData: { ...offer.passengerData, offer: offer.offer, creditCardNumber: cardNumber },
+                            })
+                        });
+                }).catch(
+                    () => {
+                        firestore()
+                            .collection('users')
+                            .doc(auth().currentUser.phoneNumber + "")
+                            .set({
+                                bookings: [{ ...offer.passengerData, offer: offer.offer, creditCardNumber: cardNumber, qrcodeValue: `{ticketId:${offer.offer.offerId} , passport:${offer.passengerData.passportNumber}}` }]
+                            })
+                            .then(() => {
+                                navigation.navigate('QRcode', {
+                                    ticketData: { ...offer.passengerData, offer: offer.offer, creditCardNumber: cardNumber },
+                                })
+                            });
+                    }
+                )
+
         } else {
             return
         }
