@@ -30,6 +30,7 @@ const OtpVerification = ({ route }) => {
     async function signInWithPhoneNumber(phoneNumber) {
 
         try {
+            console.log('jfgkhv')
             const confirmation = await auth().signInWithPhoneNumber(phoneNumber)
             console.log(confirmation)
             setConfirm(confirmation);

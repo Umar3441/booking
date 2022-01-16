@@ -11,7 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		183C5F3B277A6AEA00037587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183C5F3A277A6AEA00037587 /* GoogleService-Info.plist */; };
+		185CDC8C278A1C3300D6E26F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185CDC8B278A1C3300D6E26F /* GoogleService-Info.plist */; };
 		57032651DC7B9B8744533FA0 /* libPods-booking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D89BDBF901F28DD1D705463E /* libPods-booking.a */; };
 		7114B7FAB5A1B1DB5D128335 /* libPods-booking-bookingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA72C0207DE06697F44C039 /* libPods-booking-bookingTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -37,7 +37,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = booking/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = booking/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = booking/main.m; sourceTree = "<group>"; };
-		183C5F3A277A6AEA00037587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		185CDC8B278A1C3300D6E26F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3F22E1EABBDF91730CB2ABBC /* Pods-booking-bookingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booking-bookingTests.release.xcconfig"; path = "Target Support Files/Pods-booking-bookingTests/Pods-booking-bookingTests.release.xcconfig"; sourceTree = "<group>"; };
 		4A03D687561B1798E8EC7291 /* Pods-booking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booking.debug.xcconfig"; path = "Target Support Files/Pods-booking/Pods-booking.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = booking/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				183C5F3A277A6AEA00037587 /* GoogleService-Info.plist */,
+				185CDC8B278A1C3300D6E26F /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* booking */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* bookingTests */,
@@ -248,7 +248,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				183C5F3B277A6AEA00037587 /* GoogleService-Info.plist in Resources */,
+				185CDC8C278A1C3300D6E26F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP3WY5AJGW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = booking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -513,7 +514,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tasttlig.com;
 				PRODUCT_NAME = booking;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -528,6 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JP3WY5AJGW;
 				INFOPLIST_FILE = booking/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,7 +540,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tasttlig.com;
 				PRODUCT_NAME = booking;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

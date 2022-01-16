@@ -14,6 +14,7 @@ const LookingForFlights = ({ route }) => {
     const [flightOffers, setflightOffers] = useState(null)
 
     const offerRequiredData = route.params
+    console.log(offerRequiredData)
 
 
 

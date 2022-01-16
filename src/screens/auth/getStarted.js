@@ -20,7 +20,7 @@ const GetStarted = () => {
 
             <View style={styles.logoContainer}>
                 <Image source={images.getStartedLogo} style={styles.logoStyles} />
-                <Text style={{ fontSize: 30, fontWeight: '900' }}>Ticket Booking</Text>
+                <Text style={{ fontSize: 30, fontWeight: '900' }}>Air Code</Text>
             </View>
 
             <TouchableOpacity onPress={() => navigation.navigate('SignUp')} style={styles.buttonStyle}>

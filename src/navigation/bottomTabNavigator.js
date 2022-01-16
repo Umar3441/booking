@@ -7,6 +7,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { colors } from '../utils';
 import MyBooking from '../screens/app/myBooking';
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
 const Tab = createBottomTabNavigator();
 
@@ -39,8 +40,8 @@ function TabNavigator() {
 
                 options={
                     {
-                        tabBarIcon: ({ color }) => <Feather name='book-open' size={30} color={color} />,
-                        tabBarLabel: 'My Booking'
+                        tabBarIcon: ({ color }) => <AntDesign name='infocirlceo' size={30} color={color} />,
+                        tabBarLabel: 'My Info'
                     }
                 }
             />

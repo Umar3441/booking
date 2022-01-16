@@ -23,8 +23,9 @@ const Main = () => {
             .doc(auth()?.currentUser?.phoneNumber?.toString())
             .onSnapshot(documentSnapshot => {
 
-                // console.log('User data: ', documentSnapshot.data());
+                console.log('User data: ', documentSnapshot.data());
                 dispatch(addUser(documentSnapshot.data()))
+
 
 
             });

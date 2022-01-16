@@ -104,7 +104,7 @@ const PaymentDetails = ({ route }) => {
                     firestore()
                         .collection('users')
                         .doc(auth().currentUser.phoneNumber + "")
-                        .set({
+                        .update({
                             ...tempData,
                             bookings: bookings
                         })

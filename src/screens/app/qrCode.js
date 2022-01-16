@@ -19,7 +19,7 @@ const QRcode = ({ route }) => {
     const navigation = useNavigation();
     const offer = route.params.ticketData;
 
-    // console.log(offer)
+
 
 
     return (
@@ -34,7 +34,7 @@ const QRcode = ({ route }) => {
 
 
                 <Text style={{ color: colors.lightGrey, fontSize: 16 }}>Date</Text>
-                <Text style={{ color: colors.white, fontSize: 18, marginVertical: 20 }}>{moment(offer.date).format('LL')}</Text>
+                <Text style={{ color: colors.white, fontSize: 18, marginVertical: 20 }}>{moment(offer.selectedDate).format('LL')}</Text>
 
 
                 <Text style={{ color: colors.lightGrey, fontSize: 16 }}>Ticket Number</Text>

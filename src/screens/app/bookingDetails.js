@@ -20,10 +20,10 @@ function ValidateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
-const BookingDetails = () => {
+const BookingDetails = ({ route }) => {
 
     const navigation = useNavigation()
-
+    const departureDate = route.params.selectedDate.toISOString().split('T')[0]
 
 
     /////////////Full Name states ////////////////
@@ -82,10 +82,10 @@ const BookingDetails = () => {
             setPassportNumberError('Required')
             globalError = true
         }
-        if (!drivingLicense) {
-            setdrivingLicenseError('Required')
-            globalError = true
-        }
+        // if (!drivingLicense) {
+        //     setdrivingLicenseError('Required')
+        //     globalError = true
+        // }
         if (!departureCity) {
             setdepartureCityError('Required')
             globalError = true
@@ -110,8 +110,8 @@ const BookingDetails = () => {
                 arrivalCity,
                 arrivalCityCode,
                 phoneNumber,
-                drivingLicense,
-                departureDate: '2022-01-10',
+                // drivingLicense,
+                departureDate,
 
             })
 
@@ -209,7 +209,7 @@ const BookingDetails = () => {
                 />
 
 
-                <CustomTextInput
+                {/* <CustomTextInput
                     title='Driving License'
                     placeHolder='Enter Driving License'
                     borderColor={drivingLicenseBorderColor}
@@ -228,7 +228,7 @@ const BookingDetails = () => {
                     keyboardType='numeric'
 
                     Icon={() => <FontAwesome name='drivers-license-o' size={20} color={drivingLicenseBorderColor} onPress={() => console.log('scan')} />}
-                />
+                /> */}
 
                 <CustomTextInput
                     title='Departure'
