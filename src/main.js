@@ -16,23 +16,22 @@ const Main = () => {
 
     const dispatch = useDispatch()
     const userInfo = useSelector(state => state.userReducer.user)
+    console.log('------->', userInfo)
 
-    useEffect(() => {
-        const subscriber = firestore()
-            .collection('users')
-            .doc(auth()?.currentUser?.phoneNumber?.toString())
-            .onSnapshot(documentSnapshot => {
+    // useEffect(() => {
+    //     console.log('--------------------------------')
+    //     const subscriber =
+    //         firestore()
+    //             .collection('users')
+    //             .doc(auth()?.currentUser?.phoneNumber?.toString())
+    //             .onSnapshot(documentSnapshot => {
+    //                 console.log('<<<<<<<<<<<<<<<<<<<User data----->: ', documentSnapshot.data());
+    //                 dispatch(addUser(documentSnapshot.data()))
+    //             });
 
-                console.log('User data: ', documentSnapshot.data());
-                dispatch(addUser(documentSnapshot.data()))
-
-
-
-            });
-
-        // Stop listening for updates when no longer required
-        return () => subscriber();
-    }, []);
+    //     // Stop listening for updates when no longer required
+    //     return () => subscriber();
+    // }, []);
 
     // Set an initializing state whilst Firebase connects
     const [initializing, setInitializing] = useState(true);
@@ -40,9 +39,6 @@ const Main = () => {
 
     // Handle user state changes
     function onAuthStateChanged(user) {
-
-        console.log(user)
-
         setUser(user);
         if (initializing) setInitializing(false);
     }

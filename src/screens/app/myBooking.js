@@ -20,11 +20,19 @@ const MyBooking = ({ navigation }) => {
     const [initializing, setInitializing] = useState(true)
     const userInfo = useSelector(state => state.userReducer.user)
 
+    const [info, setinfo] = useState(userInfo?.info)
+
     useEffect(() => {
         setTimeout(() => {
             setInitializing(false)
         }, 1000)
     }, [navigation])
+
+
+    useEffect(() => {
+        console.log('----->mybooking Update', userInfo)
+        setinfo(userInfo?.info)
+    }, [userInfo])
 
     // useEffect(() => {
 
@@ -43,13 +51,13 @@ const MyBooking = ({ navigation }) => {
         )
     }
 
-    if (!userInfo?.info) {
+    if (!info) {
         return (
             <MyInformation1 />
         )
     }
 
-    if (userInfo?.info) {
+    if (info) {
         return (
             <View style={styles.container}>
                 <StatusBar backgroundColor='transparent' translucent barStyle='dark-content' />

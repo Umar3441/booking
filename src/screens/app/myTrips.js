@@ -9,20 +9,50 @@ import auth from '@react-native-firebase/auth'
 import { useSelector } from 'react-redux';
 import moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { useDispatch } from 'react-redux';
+import firestore from '@react-native-firebase/firestore';
+import { addUser } from '../../redux/actions/user';
 
 
 import { textStyles, images, colors } from '../../utils';
 
 const MyTrips = () => {
 
+    const dispatch = useDispatch()
     const userInfo = useSelector(state => state.userReducer.user)
     const [initializing, setInitializing] = useState(true)
+
+    const [bookings, setBookings] = useState(userInfo?.bookings)
+
+
+    useEffect(() => {
+        console.log('--------------------------------')
+        // const subscriber =
+        firestore()
+            .collection('users')
+            .doc(auth()?.currentUser?.phoneNumber?.toString())
+            .onSnapshot(documentSnapshot => {
+                console.log('<<<<<<<<<<<<<<<<<<<User data----->: ', documentSnapshot.data());
+                dispatch(addUser(documentSnapshot.data()))
+            });
+
+        // Stop listening for updates when no longer required
+        // return () => subscriber();
+    }, []);
+
 
     useEffect(() => {
         setTimeout(() => {
             setInitializing(false)
         }, 1000);
     }, [])
+
+
+
+    useEffect(() => {
+        setBookings(userInfo?.bookings)
+        console.log('userInfo trips--> ', userInfo)
+    }, [userInfo])
 
 
     if (initializing)
@@ -32,7 +62,7 @@ const MyTrips = () => {
             </View>
         )
 
-    if (userInfo?.bookings) {
+    if (bookings) {
         return (
             <MyBooking />
         )
@@ -44,6 +74,7 @@ const MyTrips = () => {
 }
 
 const MyBooking = () => {
+
 
 
     const navigation = useNavigation()
